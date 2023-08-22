@@ -8,7 +8,7 @@
     - [Spring Modulith - Reference documentation](https://docs.spring.io/spring-modulith/docs/current-SNAPSHOT/reference/html/)
 
 ```
-  url: jdbc:postgresql://localhost:5432/jira
+  url: jdbc:postgresql://postgres-db:5432/jira
   username: jira
   password: JiraRush
 ```

@@ -1,0 +1,36 @@
+version: '4.21.1'
+
+services:
+  jira-app:
+    image: jira-app-image:latest
+    container_name: jira-container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres-db
+
+  postgres-db:
+    image: postgres:latest
+    container_name: postgres-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: jira
+      POSTGRES_PASSWORD: JiraRush
+      POSTGRES_DB: jira
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+
+  postgres-db-test:
+    image: postgres:latest
+    container_name: postgres-db-test
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: jira
+      POSTGRES_PASSWORD: JiraRush
+      POSTGRES_DB: jira-test
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ./pgdata-test:/var/lib/postgresql/data

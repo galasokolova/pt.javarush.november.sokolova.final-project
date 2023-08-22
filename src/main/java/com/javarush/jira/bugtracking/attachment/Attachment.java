@@ -21,16 +21,20 @@ public class Attachment extends NamedEntity {
     @Column(name = "date_time", columnDefinition = "timestamp default now()")
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     protected LocalDateTime dateTime = LocalDateTime.now();
+
     @Column(name = "file_link", nullable = false)
     private String fileLink;
+
     // no FK, manual check
     @Column(name = "object_id", nullable = false)
     @NotNull
     private Long objectId;
+
     @Column(name = "object_type", nullable = false)
     @Enumerated(EnumType.ORDINAL)
     @NotNull
     private ObjectType objectType;
+
     @Column(name = "user_id", nullable = false)
     @NotNull
     private Long userId;
