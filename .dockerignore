@@ -2,4 +2,3 @@
 **/.gitignore
 **/node_modules
 **/*.log
-secret_data.env
